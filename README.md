@@ -2,6 +2,9 @@
 
 A smart safety app that detects male and female voices in an audio recording, classifies them, and counts unique voices. If an alert is triggered (e.g., an unusual male-to-female ratio or detected threats), it sends an SMS to trusted contacts. Additional features include real-time gender classification, location-based alerts, and analysis of risk zones. The app aims to enhance safety by enabling proactive alerts and helping users feel secure in various environments.
 
+## Inspiration
+Suraksha addresses the critical issue of women’s safety by providing a proactive solution to detect and analyze potential threats. It uses real-time audio classification to identify male and female voices, count unique voices, and monitor surroundings. In high-risk situations, the app sends alerts to trusted contacts, shares live location data, and notifies users of nearby threats or high-risk zones. This solution helps prevent attacks, supports swift intervention, and empowers women with the tools needed to stay safe in various environments.
+
 ## Features
 
 - **Gesture Analysis by Voice Command or Pattern:**  
