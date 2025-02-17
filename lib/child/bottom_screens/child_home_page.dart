@@ -352,8 +352,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
 */
 
-
-
 import 'dart:async';
 import 'dart:math';
 import 'package:background_sms/background_sms.dart';
@@ -390,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isFetchingLocation = true;
   int? _selectedSimSlot;
   StreamSubscription<Position>? _positionStreamSubscription;
- final AudioRecorder _audioRecorder = AudioRecorder(); 
+  final AudioRecorder _audioRecorder = AudioRecorder();
   @override
   void initState() {
     super.initState();
@@ -448,17 +446,13 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
       if (result == SmsStatus.sent) {
-        Fluttertoast.showToast(msg: "Message sent through SIM ${_selectedSimSlot! + 1}");
+        Fluttertoast.showToast(
+            msg: "Message sent through SIM ${_selectedSimSlot! + 1}");
       } else {
         Fluttertoast.showToast(msg: "Message failed to send");
       }
     }
   }
-
-
-
-
-
 
   Future<void> _selectSimSlot() async {
     await showDialog(
@@ -516,7 +510,8 @@ class _HomeScreenState extends State<HomeScreen> {
       if (!mounted) return;
       Placemark place = placemarks[0];
       setState(() {
-        _currentAddress = "${place.locality}, ${place.postalCode}, ${place.subLocality}";
+        _currentAddress =
+            "${place.locality}, ${place.postalCode}, ${place.subLocality}";
         _isFetchingLocation = false;
       });
     } catch (e) {
@@ -547,7 +542,8 @@ class _HomeScreenState extends State<HomeScreen> {
     if (await _isPermissionGranted()) {
       List<Tcontact> contactList = await DatabaseHelper().getContactList();
       for (Tcontact contact in contactList) {
-        await _sendSms(contact.number, "I am in trouble, please reach me at $messageBody");
+        await _sendSms(
+            contact.number, "I am in trouble, please reach me at $messageBody");
       }
     } else {
       Fluttertoast.showToast(msg: "SMS permission not granted.");
@@ -603,7 +599,6 @@ class _HomeScreenState extends State<HomeScreen> {
             _sendLocationToContacts();
             _audioRecorder.startRecording();
             _showToast("Location sent and recording started.");
-            
           }
         });
       },
@@ -660,8 +655,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 CustomAppbar(
-                  // Removed the quoteIndex and oneTap parameters if not needed
-                ),
+                    // Removed the quoteIndex and oneTap parameters if not needed
+                    ),
                 // Voice recognition section with toggle button
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 16),
@@ -681,7 +676,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Text(
                         _voiceStatus,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 10),
                       Text(
@@ -691,7 +687,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: _toggleVoiceRecognition,
-                        child: Text(_isListening ? "Stop Listening" : "Start Listening"),
+                        child: Text(_isListening
+                            ? "Stop Listening"
+                            : "Start Listening"),
                       ),
                     ],
                   ),
@@ -705,7 +703,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "Emergency",
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Emergency(),
@@ -713,7 +712,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "Explore LiveSafe",
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                       LiveSafe(),
