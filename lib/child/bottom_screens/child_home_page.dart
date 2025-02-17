@@ -367,7 +367,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:women_safety/db/db_services.dart';
 import 'package:women_safety/model/contactsm.dart';
 import 'package:women_safety/record/recording.dart';
-import 'package:women_safety/widgets/home_widgets/CustomCarouel.dart';
 import 'package:women_safety/widgets/home_widgets/custom_appBar.dart';
 import 'package:women_safety/widgets/home_widgets/emergency.dart';
 import 'package:women_safety/widgets/live_safe.dart';
