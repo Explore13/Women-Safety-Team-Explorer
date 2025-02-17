@@ -92,14 +92,13 @@ app.post("/predict", upload.single("file"), async (req, res) => {
         if (code === 0) {
           try {
             const parsedResult = JSON.parse(result);
-            const message = `*Gender Classification Results*
+            const message = `*Gender Classification Results
+            Males: ${parsedResult.male}  
+            Females: ${parsedResult.female}  
 
-Males: ${parsedResult.male}  
-Females: ${parsedResult.female}  
+            📂 *Download Processed Audio:* ${firebaseUrl}
 
-📂 *Download Processed Audio:* [Click Here](${firebaseUrl})  
-
-🛡️ Stay Safe! 🚀`;
+            🛡️ Stay Safe! 🚀`;
 
             const finalResult = {
               ...parsedResult,
